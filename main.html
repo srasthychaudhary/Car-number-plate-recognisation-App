@@ -1,0 +1,336 @@
+<head>
+
+    <title>RTO fetcher</title>
+    <link rel="icon" href="logo1.png" type="image/icon type">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous" />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static' , filename = 'home6.css') }}" />
+    <link rel="shortcut icon" type="image/png" href="{{ url_for('static' , filename = 'samlogo.png') }}" />
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+
+    <style>
+        .img {
+            margin-left: 20%;
+            margin-right: 20%;
+            border-radius: 50%;
+
+        }
+
+        .input {
+            width: 500px;
+            height: 50px;
+            text-align: center;
+            font-size: 45px;
+            border-color: rgba(0, 0, 0, 0.829);
+            color: rgb(0,0,0);
+            margin-left: 100%;
+            /* margin-right: 30%; */
+            border-radius: 5px;
+            margin-top: 15%;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .bg {
+            background-image: url("car.jpg");
+            background-color: white;
+           background-position: center;
+           background-size: cover;
+           background-repeat: no-repeat;
+           
+            position: relative;
+            
+
+        }
+
+        /* .car-img {
+            position: absolute;
+            z-index: -1;
+            bottom: 3px;
+            transition: 1s;
+            width: 850px;
+            height: 450px;
+            left: 25%;
+           
+
+        } */
+
+        .txt {
+            margin-left: 280px;
+            color: rgb(0, 0, 0);
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        .file {
+            margin-left: 30%;
+            color: rgb(0, 0, 0);
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: larger;
+            font-weight: bold;
+
+        }
+/*
+        input[type=file]::file-selector-button {
+            width: 500px;
+            height: 50px;
+            border: 2px solid #2e0505;
+            padding: .2em .4em;
+            border-radius: .2em;
+            color: rgb(48, 47, 47);
+            background-color: #d62b2b;
+            transition: 1s;
+            width: 500px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 25px;
+            font-weight: bold;
+            margin-right: 20000px;
+        }
+
+        input[type=file]::file-selector-button:hover {
+            color: white;
+            border: 2px solid #ffffff;
+            cursor: pointer;
+        }*/
+
+        .btn {
+            width: 500px;
+            height: 50px;
+            text-align: center;
+            transition: 0.3s;
+            color: rgb(255, 255, 255);
+            font-weight: bold;
+            background-color: rgba(3, 3, 3, 0.781);
+            font-size: 25px;
+            border: 2px solid #000000;
+            margin-left: 100%;
+            /* margin-right: 5%; */
+            border-radius: 5px;
+            margin-top: 5px;
+            font-family: Arial;
+            padding: .2em .4em;
+        }
+        #b1{
+            margin-left: 33%;
+        }
+
+        .btn:hover {
+            color: white;
+            background-color: rgba(37, 34, 34, 0.781);
+            border: 2px solid hsl(0, 0%, 100%);
+            cursor: pointer;
+        }
+
+        form {
+            margin-right: 1200px;
+            align-items: center;
+            margin-top: 150px;
+            
+        }
+
+        .file-upload {
+            display: block;
+            text-align: center;
+            font-family: Helvetica, Arial, sans-serif;
+            font-size: 15px;
+            height: 50px;
+            margin-left: 30%;
+            margin-right: 30%;
+            width: 500px;
+        }
+
+        .file-upload .file-select {
+            display: block;
+            border: 2px solid #dce4ec;
+            color: #34495e;
+            cursor: pointer;
+            height: 40px;
+            line-height: 40px;
+            text-align: left;
+            background: #ffffff;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .file-upload .file-select .file-select-button {
+            background: #dce4ec;
+            padding: 0 10px;
+            display: inline-block;
+            height: 40px;
+            line-height: 40px;
+        }
+
+        .file-upload .file-select .file-select-name {
+            line-height: 40px;
+            display: inline-block;
+            padding: 0 10px;
+        }
+
+        .file-upload .file-select:hover {
+            border-color: #34495e;
+            transition: all 0.2s ease-in-out;
+            -moz-transition: all 0.2s ease-in-out;
+            -webkit-transition: all 0.2s ease-in-out;
+            -o-transition: all 0.2s ease-in-out;
+        }
+
+        .file-upload .file-select:hover .file-select-button {
+            background: #34495e;
+            color: #ffffff;
+            transition: all 0.2s ease-in-out;
+            -moz-transition: all 0.2s ease-in-out;
+            -webkit-transition: all 0.2s ease-in-out;
+            -o-transition: all 0.2s ease-in-out;
+        }
+
+        .file-upload.active .file-select {
+            border-color: #3fa46a;
+            transition: all 0.2s ease-in-out;
+            -moz-transition: all 0.2s ease-in-out;
+            -webkit-transition: all 0.2s ease-in-out;
+            -o-transition: all 0.2s ease-in-out;
+        }
+        
+
+        .file-upload.active .file-select .file-select-button {
+            background: #3fa46a;
+            color: #ffffff;
+            transition: all 0.2s ease-in-out;
+            -moz-transition: all 0.2s ease-in-out;
+            -webkit-transition: all 0.2s ease-in-out;
+            -o-transition: all 0.2s ease-in-out;
+        }
+
+        .file-upload .file-select input[type="file"] {
+            z-index: 100;
+            cursor: pointer;
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            filter: alpha(opacity=0);
+        }
+
+        .file-upload .file-select.file-select-disabled {
+            opacity: 0.65;
+        }
+
+        .file-upload .file-select.file-select-disabled:hover {
+            cursor: default;
+            display: block;
+            border: 2px solid #dce4ec;
+            color: #34495e;
+            cursor: pointer;
+            height: 40px;
+            line-height: 40px;
+            margin-top: 5px;
+            text-align: left;
+            background: #ffffff;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .file-upload .file-select.file-select-disabled:hover .file-select-button {
+            background: #dce4ec;
+            color: #666666;
+            padding: 0 10px;
+            display: inline-block;
+            height: 40px;
+            line-height: 40px;
+        }
+
+        .file-upload .file-select.file-select-disabled:hover .file-select-name {
+            line-height: 40px;
+            display: inline-block;
+            padding: 0 10px;
+        }
+        table{
+            border: black solid 2px;
+            height: auto;
+            width: auto;
+            min-height: 250px;
+            max-width: 600px;
+            text-align: center;
+            border-radius: 10px;
+            font-size: large;
+            font-weight: bold;
+        }
+        thead{
+            font-size: larger;
+            background-color: rgb(231, 159, 64);
+        }
+        td{
+            border: black solid 2px;
+            border-radius: 5px;
+        }
+    </style>
+
+</head>
+
+
+<body class="bg">
+    <!-- <img src="car.jpg" class="car-img"></img> -->
+    <div> 
+        
+           
+            <div id="d0" style='float: left; margin-top: 150px;' ><input id="in1" type="text" placeholder="eg:- AA12A1023" name="input" class="input"><br>
+
+                <br>
+                
+              
+                <br><button onclick="document.getElementById('d2').style.display='block',
+                document.getElementById('b1').style.display='block',
+                document.getElementById('d0').style.display='none',ank()"
+                  type="submit"  class="btn">
+                    Find</button>
+    </div> 
+ 
+    <div id='d2' style="display: none; border: 1px solid;
+    padding: 10px;height: 500px;
+    box-shadow: 5px 10px 8px #888888;margin-top: auto;
+      border-radius: 7px;">
+          <pre><div align=left id="d1" style="color:black;"> <h3 align=center></h3>
+				</div></pre>
+
+    </div>
+    <button id='b1'style='display:none' onclick="document.getElementById('b1').style.display='none',
+
+      document.getElementById('d2').style.display='none',
+      document.getElementById('d0').style.display='block'"
+        class="btn">Check Other</button>
+
+</body>
+<script>
+    /*$('#chooseFile').bind('change', function () {
+        var filename = $("#chooseFile").val();
+        if (/^\s*$/.test(filename)) {
+            $(".file-upload").removeClass('active');
+            $("#noFile").text("hello...");
+        }
+        else {
+            $(".file-upload").addClass('active');
+            $("#noFile").text(filename.replace("C:\\fakepath\\", ""));
+        }
+    });*/
+    function ank(){
+		 var i = document.getElementById("in1").value
+
+                var xhr = new XMLHttpRequest();
+                
+                xhr.open("GET", "http://192.168.56.103/cgi-bin/task8.py?x=" + i, true);
+               
+                xhr.send();
+
+                xhr.onload = function() {
+                        var output = xhr.responseText;
+                        document.getElementById("d1").innerHTML = output;
+                }
+        }
+   
+</script>
